@@ -1,5 +1,6 @@
 @ECHO OFF
 :: Achtung dieses Skript funktioniert nur wirklich gut unter einer Deutschen Windows Installation!!!
+:: Dieses Skript gibt verschiedene Infos über das Betriebssystem aus.
 ECHO Windows 10 Information
 
 systeminfo > systeminfo.temp
@@ -22,9 +23,9 @@ wmic cpu get name, numberofcores
 ECHO Disk Information
 wmic diskdrive get name, model, size
 
-:: Okay ich habe mich daran versucht... Ich bin so direkt und sage es jetzt mal so. BATCH auf Windows ist einfach SCHEISSE.
-:: Befehle können auf keine gute Weise in Variablen gespeichert werden, irgendwie werden meine Outputs verdreht,
-:: Und Programme sind in unterschiedlichen Sprachen je nach Installation.
-:: Bitte, ich flehe sie an. Schauen sie doch ob es hier nicht mehr Sinn machen würde sich Powershell anzuschauen.
+:: Okay ich habe mich daran versucht... Outputs von Befehlen können auf keine gute Weise in Variablen gespeichert werden, irgendwie werden meine Outputs verdreht ausgegeben,
+:: Und Programme funktionieren in unterschiedlichen Sprachen je nach Installation.
+:: Schauen sie doch ob es hier nicht mehr Sinn machen würde sich Powershell anzuschauen.
+:: In meinen rund 6 Jahren in der IT habe ich noch nie ein Windows Batch Programm geschrieben oder kam damit in Kontakt.
 
 PAUSE

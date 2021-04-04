@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Hello, this is a file renamer. Please tell us what you'd like to do:"
-echo "1: Rename all files in your style"
+echo "Hello, this is a multi-file renamer. Please tell us what you'd like to do:"
+echo "1: Rename all files in a directory with your naming scheme"
 echo "2: Add a Prefix"
 echo "3: Add a Suffix"
 
@@ -19,8 +19,8 @@ else
 fi
 
 renameFilesWithPersonalStyle() {
-    style=$1
-    if [[ $style == *"counter"* ]]; then
+    scheme=$1
+    if [[ $scheme == *"counter"* ]]; then
         echo ""
     else
         echo "Please add 'counter' in your style."
@@ -31,7 +31,7 @@ renameFilesWithPersonalStyle() {
 
     for file in *
     do
-        newName=$(echo $style | sed "s/counter/${counter}/g")
+        newName=$(echo $scheme | sed "s/counter/${counter}/g")
         mv "$(pwd)/$file" "$(pwd)/$newName"
         let counter++
     done
@@ -60,8 +60,8 @@ renameFilesWithSuffix() {
 
 case $action in
     1)  echo "Now enter your file name, the word 'counter' will be replaced with a number."
-        read style
-        renameFilesWithPersonalStyle $style
+        read scheme
+        renameFilesWithPersonalStyle $scheme
         ;;
     2)  echo "Now enter your Prefix."
         read prefix
